@@ -410,8 +410,7 @@ button.project-link{background:none;cursor:pointer;font-family:var(--font-body)}
           <div class="form-group"><label for="subject">What are you looking for?</label>
             <select name="service" id="subject"><option value="">Select a service</option><option>Virtual Assistant Services</option><option>Finance and Bookkeeping Support</option><option>AI Workflow Automation</option><option>HR and Recruitment Support</option><option>Research and Data Analysis</option><option>Other</option></select></div>
           <div class="form-group"><label for="message">Your Message</label><textarea name="message" id="message" placeholder="Tell me about your project or opportunity..."></textarea></div>
-          <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:14px;"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
           <div id="form-status" role="status" aria-live="polite"></div>
         </form>
       </div>
@@ -683,7 +682,7 @@ if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>es.fo
 $("#contact-form").addEventListener("submit",async e=>{
   e.preventDefault();const f=e.target,st=$("#form-status"),btn=f.querySelector("button[type=submit]");
   const say=(m,c)=>{st.textContent=m;st.className=c};
-  if(f._gotcha.value)return;
+  
   btn.disabled=true;say("Sending...","");
   try{
     const r=await fetch(f.action,{method:"POST",headers:{Accept:"application/json"},body:new FormData(f)});
